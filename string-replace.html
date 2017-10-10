@@ -1,1 +1,29 @@
+<html>
 
+<head>
+    <title>template</title>
+</head>
+
+<body>
+    <textarea name="" id="x" style="width: 800px;height: 100px;"></textarea>
+    <textarea name="" id="y" style="width: 800px;height: 400px;"></textarea>
+    <script>
+    document.getElementById('x').oninput = function() {
+        var reg = [
+                [/\r|\n/g, ' '],
+                [/\./g, '.\n']
+            ],
+            str = this.value,
+            y = document.getElementById('y');
+        y.value = reg.reduce(function(prev, next) {
+            return prev.replace(next[0], next[1])
+        }, str);
+        y.focus();
+        y.select();
+        document.execCommand('copy');
+        this.value = '';
+    }
+    </script>
+</body>
+
+</html>
