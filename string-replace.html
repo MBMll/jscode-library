@@ -9,7 +9,7 @@
     <textarea name="" id="y" style="width: 800px;height: 400px;"></textarea>
     <script>
     document.getElementById('x').oninput = function() {
-        var reg = [
+        var reg = [//包含多个替换规则递归修饰
                 [/\r|\n/g, ' '],
                 [/\./g, '.\n']
             ],
